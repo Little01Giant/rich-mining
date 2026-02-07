@@ -31,20 +31,27 @@ export default function Navbar() {
         const element = document.getElementById(targetId);
 
         if (element) {
-            const offsetTop = element.offsetTop;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: "smooth"
-            });
-            setIsMobileMenuOpen(false);
+            setIsMobileMenuOpen(false); // Close menu first
+
+            // Small timeout to allow menu closing animation to start/layout to settle
+            setTimeout(() => {
+                const headerOffset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }, 100);
         }
     };
 
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "bg-rich-black/90 backdrop-blur-md py-4 shadow-lg border-b border-rich-gold/10"
-                    : "bg-transparent py-6"
+                ? "bg-rich-black/90 backdrop-blur-md py-4 shadow-lg border-b border-rich-gold/10"
+                : "bg-transparent py-6"
                 }`}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
