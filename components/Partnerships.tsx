@@ -33,7 +33,7 @@ export default function Partnerships() {
                         </div>
 
                         <motion.a
-                            href="mailto:info@richmining.mn"
+                            href="mailto:Richminingllc@gmail.com"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="inline-flex items-center gap-2 bg-rich-gold text-rich-black px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-colors shadow-lg shadow-rich-gold/20"
